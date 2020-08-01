@@ -1,14 +1,14 @@
-<form>
+<form (ngSubmit)="login()">
   <div class="container">
     <h1>Login</h1>
 
     <hr>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required ><br>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required [(ngModel)]="email"><br>
 
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" id="password" required ><br>
+    <input type="password" placeholder="Enter Password" name="password" id="password" required [(ngModel)]="password"><br>
 
 
     <hr>
@@ -21,4 +21,8 @@
     <p>Already have an account? <a routerLink="/register">Sign up</a>.</p>
   </div>
 </form>
+<div class="form-group">
+  <p *ngIf="errorMessage.length > 0" class="text-danger"> {{errorMessage}} </p>
+  <p *ngIf="error.message.length > 0" class="text-danger"> {{error.message}} </p>
+</div>
 

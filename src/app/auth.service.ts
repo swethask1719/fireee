@@ -20,4 +20,13 @@ export class AuthService {
         throw error;
       })
   }
+  loginWithEmail(email:string, password: string)
+  {
+    return this.afu.signInWithEmailAndPassword(email,password).then((user)=>{
+      this.authState = user;
+    }).catch((error)=>{
+      console.log(error);
+      throw error;
+    })
+  }
 }

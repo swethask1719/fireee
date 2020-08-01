@@ -16,10 +16,16 @@ export class RegisterComponent implements OnInit {
 
   error: {name:string,message:string} = {name: '' , message: ''}; //for firebase error handle
   constructor(private authservice:AuthService,private router:Router) { }
+  clearErrorMessage()
+  {
+    this.errorMessage = '';
+    this.error = { name:'', message:''};
+  }
 
   ngOnInit() {
   }
   register(){
+    this.clearErrorMessage();
     if(this.validateForm(this.email,this.password)){
       this.authservice.registerWithEmail(this.email,this.password)
         .then(()=>{
