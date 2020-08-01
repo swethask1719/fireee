@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,11 +15,22 @@ export class RegisterComponent implements OnInit {
   errorMessage= ""; //validation error handle
 
   error: {name:string,message:string} = {name: '' , message: ''}; //for firebase error handle
-  constructor() { }
+  constructor(private authservice:AuthService,private router:Router) { }
 
   ngOnInit() {
   }
   register(){
+    if(this.validateForm(this.email,this.password)){
+      this.authservice.registerWithEmail(this.email,this.password)
+        .then(()=>{
+          this.message = "you are registered"
+          alert("Successfully Registered")
+          this.router.navigate(['/login'])
+        }).catch((_error)=>{
+          this.error = _error
+          this.router.navigate(['/register'])
+        })
+    }
 
   }
   validateForm(email,password)
