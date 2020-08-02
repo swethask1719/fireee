@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { from } from 'rxjs';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { from } from 'rxjs';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ForgetpasswordComponent
+    ForgetpasswordComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
