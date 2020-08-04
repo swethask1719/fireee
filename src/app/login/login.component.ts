@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     {
         this.authservice.loginWithEmail(this.email,this.password)
         .then(()=>{
+          alert("Login Successful")
           this.router.navigate(['/home'])
         }).catch((_error)=>{
           this.error = _error
