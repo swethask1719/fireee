@@ -29,4 +29,8 @@ export class AuthService {
       throw error;
     })
   }
+  logout(){
+    this.afu.signOut();
+    this.router.navigate(['/home']);
+  }
 }

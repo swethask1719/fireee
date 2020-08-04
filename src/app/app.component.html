@@ -4,8 +4,8 @@
       <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a routerLink="home">Home</a></li>
-      <li class="dropdown">
+      <li class="active" *ngIf="authservice.authState"><a routerLink="home">Home</a></li>
+      <li class="dropdown" *ngIf="authservice.authState">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Employee details
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -16,8 +16,9 @@
 
     </ul>
     <ul class="nav navbar-nav navbar-right" style="margin-right: 30px;">
-      <li><a routerLink="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a routerLink="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li *ngIf="!authservice.authState"><a routerLink="register" ><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+      <li *ngIf="!authservice.authState"><a routerLink="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li *ngIf="authservice.authState"><a (click)="authservice.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
