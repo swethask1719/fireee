@@ -29,6 +29,17 @@ export class AuthService {
       throw error;
     })
   }
+  get currentUserId(): string {
+    return (this.authState !== null) ? this.authState.uid : ''
+  }
+
+  get currentUserName(): string {
+    return this.authState['email']
+  }
+
+  get currentUser(): any {
+    return (this.authState !== null) ? this.authState : null;
+  }
   logout(){
     this.afu.signOut();
     this.router.navigate(['/home']);
