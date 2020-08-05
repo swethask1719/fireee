@@ -14,4 +14,8 @@ export class CrudService {
 
     return this.fireService.collection('Users/'+owner.uid+'/Employee').add(Record);
   }
+  get_Allemployee()
+  {var owner=this.authService.authState;
+    return this.fireService.collection('Users/'+owner.uid+'/Employee').snapshotChanges();
+  }
 }
