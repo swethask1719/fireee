@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { from } from 'rxjs';
 import { EmployeeComponent } from './employee/employee.component';
+import { CrudService } from './crud.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { EmployeeComponent } from './employee/employee.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
