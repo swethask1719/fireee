@@ -18,4 +18,11 @@ export class CrudService {
   {var owner=this.authService.authState;
     return this.fireService.collection('Users/'+owner.uid+'/Employee').snapshotChanges();
   }
+  
+
+  delete_employee(record_id)
+  {var owner=this.authService.authState;
+    this.fireService.doc('Users/'+owner.uid+'/Employee/'+record_id).delete();
+    
+  }
 }

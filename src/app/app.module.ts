@@ -4,7 +4,7 @@ import {AuthService} from './auth.service';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {AngularFireStorageModule} from '@angular/fire/storage'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,8 @@ import { from } from 'rxjs';
 import { EmployeeComponent } from './employee/employee.component';
 import { CrudService } from './crud.service';
 
+import { ImagecrudService } from './imagecrud.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { CrudService } from './crud.service';
     RegisterComponent,
     HomeComponent,
     ForgetpasswordComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,9 +38,10 @@ import { CrudService } from './crud.service';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService,CrudService],
+  providers: [AuthService,CrudService,ImagecrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

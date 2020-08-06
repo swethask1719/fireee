@@ -29,5 +29,14 @@ export class HomeComponent implements OnInit {
 
     });
   }
+ 
+
+  
+
+  Deleteemployee(record_id)
+  {
+    this.crudservice.delete_employee(record_id);
+    alert("Are you sure you are deleting")
+  }
 
 }

@@ -7,13 +7,17 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { EmployeeComponent } from './employee/employee.component';
 
 
+
+
+
 const routes: Routes = [
 {path:'',component:HomeComponent},
 {path:'home',component:HomeComponent},
 {path:'login',component:LoginComponent},
 {path:'register',component:RegisterComponent},
 {path:'frgt',component:ForgetpasswordComponent},
-{path:'employ',component:EmployeeComponent}
+{path:'employ',component:EmployeeComponent},
+
 ];
 
 @NgModule({
